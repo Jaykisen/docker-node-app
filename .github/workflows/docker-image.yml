@@ -34,7 +34,7 @@ jobs:
 
     - name: SSH to EC2 and deploy container
       run: |
-        ssh -i private_key.pem ec2-user@${{ secrets.EC2_IP }} << 'EOF'
+        ssh -i private_key.pem ubuntu@${{ secrets.EC2_IP }} << 'EOF'
           docker pull ${{ secrets.DOCKER_USERNAME }}/myapp:image001
           docker stop myapp || true
           docker rm myapp || true
